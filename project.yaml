@@ -11,6 +11,13 @@ actions:
       highly_sensitive:
         cohort: output/input.csv.gz
 
+  describe:
+    run: python:latest python analysis/report.py
+    needs: [generate_study_population]
+    outputs:
+      moderately_sensitive:
+        cohort: output/descriptive.png
+        
   # generate_dataset:
   #   run: ehrql:v0 generate-dataset analysis/dataset_definition.py --output output/dataset.csv.gz
   #   outputs:
